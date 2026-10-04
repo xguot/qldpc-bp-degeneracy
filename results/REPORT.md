@@ -2,7 +2,7 @@
 
 ## The claim
 
-> Across the three degenerate hypergraph-product codes ([[5,1,2]], [[8,1,2]], [[13,1,3]]) at code capacity with p = 0.1, 100.0% of avoidable BP+OSD failures are degenerate ambiguities, and a fractional LP optimum flags an avoidable BP+OSD failure with 47.6% precision (100.0% recall); the non-degenerate [[7,1,3]] Steane code has no avoidable BP+OSD failures at this p.
+> Across the tested degenerate hypergraph-product codes ([[5,1,2]], [[8,1,2]], [[13,1,3]]) at code capacity with p = 0.1, 100.0% of avoidable BP+OSD failures are degenerate ambiguities, and a fractional LP optimum flags an avoidable BP+OSD failure with 47.6% precision (100.0% recall); the non-degenerate [[7,1,3]] Steane code has no avoidable BP+OSD failures at this p.
 
 ## Method
 
@@ -15,13 +15,13 @@
 
 ## Codes under test
 
-| code | params | n | k | d | m_x | m_z | syndromes | degenerate | ambiguous |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| steane | [[7,1,3]] | 7 | 1 | 3 | 3 | 3 | 8 | 0 | 0 |
-| rep5 | [[5,1,5]] | 5 | 1 | 5 | 0 | 4 | 16 | 0 | 0 |
-| hgp22 | [[5,1,2]] | 5 | 1 | 2 | 2 | 2 | 4 | 2 | 2 |
-| hgp32 | [[8,1,2]] | 8 | 1 | 2 | 4 | 3 | 8 | 5 | 5 |
-| hgp33 | [[13,1,3]] | 13 | 1 | 3 | 6 | 6 | 64 | 33 | 26 |
+| code | params | n | k | d | m_x | m_z | syndromes | degenerate | ambiguous | instances |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| steane | [[7,1,3]] | 7 | 1 | 3 | 3 | 3 | 8 | 0.0 | 0.0 | 128 |
+| rep5 | [[5,1,5]] | 5 | 1 | 5 | 0 | 4 | 16 | 0.0 | 0.0 | 32 |
+| hgp22 | [[5,1,2]] | 5 | 1 | 2 | 2 | 2 | 4 | 2.0 | 2.0 | 32 |
+| hgp32 | [[8,1,2]] | 8 | 1 | 2 | 4 | 3 | 8 | 5.0 | 5.0 | 256 |
+| hgp33 | [[13,1,3]] | 13 | 1 | 3 | 6 | 6 | 64 | 33.0 | 26.0 | 8192 |
 
 ## Experiment 1: avoidable-failure rates
 
@@ -114,42 +114,42 @@
 
 | code | avoidable | ambiguous | stopping | both | neither |
 | --- | --- | --- | --- | --- | --- |
-| steane | 0 | 0 | 0 | 0 | 0 |
-| rep5 | 0 | 0 | 0 | 0 | 0 |
-| hgp22 | 8 | 8 | 2 | 2 | 0 |
-| hgp32 | 80 | 80 | 18 | 18 | 0 |
-| hgp33 | 1664 | 1664 | 106 | 106 | 0 |
+| steane | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
+| rep5 | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
+| hgp22 | 8.0 | 8.0 | 2.0 | 2.0 | 0.0 |
+| hgp32 | 80.0 | 80.0 | 18.0 | 18.0 | 0.0 |
+| hgp33 | 1664.0 | 1664.0 | 106.0 | 106.0 | 0.0 |
 
 ### BP only (convergence split)
 
 | code | avoidable | non-convergence | wrong convergence |
 | --- | --- | --- | --- |
-| steane | 0 | 0 | 0 |
-| rep5 | 0 | 0 | 0 |
-| hgp22 | 8 | 8 | 0 |
-| hgp32 | 80 | 80 | 0 |
-| hgp33 | 1728 | 1216 | 512 |
+| steane | 0.0 | 0 | 0 |
+| rep5 | 0.0 | 0 | 0 |
+| hgp22 | 8.0 | 8 | 0 |
+| hgp32 | 80.0 | 80 | 0 |
+| hgp33 | 1728.0 | 1216 | 512 |
 
 ## Experiment 3: LP calibration as degeneracy detector
 
-| code | solved | frac face | frac vertex | frac ambig | frac unambig | precision (p) | recall (p) | precision (u) | recall (u) |
+| code | solved | frac face | frac vertex | frac ambig | frac unambig | precision | recall | precision (u) | recall (u) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| steane | 8 | 3 | 3 | 0 | 3 | 0.000 | n/a | 0.000 | n/a |
-| rep5 | 16 | 0 | 0 | 0 | 0 | n/a | n/a | n/a | n/a |
-| hgp22 | 4 | 2 | 0 | 2 | 0 | 0.500 | 1.000 | 0.500 | 1.000 |
-| hgp32 | 8 | 5 | 0 | 5 | 0 | 0.494 | 1.000 | 0.500 | 1.000 |
-| hgp33 | 64 | 33 | 7 | 26 | 7 | 0.403 | 1.000 | 0.394 | 1.000 |
+| steane | 8 | 3 | 3 | 0.0 | 3.0 | 0.000 | n/a | 0.000 | n/a |
+| rep5 | 16 | 0 | 0 | 0.0 | 0.0 | n/a | n/a | n/a | n/a |
+| hgp22 | 4 | 2 | 0 | 2.0 | 0.0 | 0.500 | 1.000 | 0.500 | 1.000 |
+| hgp32 | 8 | 5 | 0 | 5.0 | 0.0 | 0.494 | 1.000 | 0.500 | 1.000 |
+| hgp33 | 64 | 33 | 7 | 26.0 | 7.0 | 0.403 | 1.000 | 0.394 | 1.000 |
 
 ## Findings
 
 - Every avoidable BP+OSD failure on the degenerate codes is a degenerate ambiguity (8/8 on [[5,1,2]] (2 also stopping sets), 80/80 on [[8,1,2]] (18 also stopping sets), 1664/1664 on [[13,1,3]] (106 also stopping sets)); stopping sets add no separate failure mode for BP+OSD, they only co-occur with ambiguity.
-- BP-only failures split differently: the distance-2 patches never converge (8 non-convergent and 0 wrongly convergent on [[5,1,2]], 80 non-convergent and 0 wrongly convergent on [[8,1,2]], 1216 non-convergent and 512 wrongly convergent on [[13,1,3]]), and every wrong convergence is a degenerate ambiguity.
-- The LP optimal-face signal detects every multi-minimal syndrome (2/2 multi-minimal syndromes on [[5,1,2]] (0 by the vertex signal), 5/5 multi-minimal syndromes on [[8,1,2]] (0 by the vertex signal), 33/33 multi-minimal syndromes on [[13,1,3]] (7 by the vertex signal)); the gap between its precision 47.6% and 100% at p = 0.1 comes from multi-minimal-but-unambiguous syndromes, i.e. degeneracy without ambiguity.
+- BP-only failures split by code: 8 non-convergent and 0 wrongly convergent on [[5,1,2]]; 80 non-convergent and 0 wrongly convergent on [[8,1,2]]; 1216 non-convergent and 512 wrongly convergent on [[13,1,3]].
+- The LP optimal-face signal detects multi-minimal syndromes (2/2 multi-minimal syndromes on [[5,1,2]] (0 by the vertex signal), 5/5 multi-minimal syndromes on [[8,1,2]] (0 by the vertex signal), 33/33 multi-minimal syndromes on [[13,1,3]] (7 by the vertex signal)); its precision below 100% comes from multi-minimal-but-unambiguous syndromes, i.e. degeneracy without ambiguity.
 - On the non-degenerate [[7,1,3]] Steane code BP+OSD has no avoidable failures at all, yet 3/8 syndromes show fractional faces: the signal fires but flags nothing.
 
 ## Limitations
 
 - Small codes only (n <= 13), code-capacity noise only; the study is a classification exercise, not a decoder benchmark.
 - All rates are exact but confined to the X-error side and the five codes listed above.
-- The fractional-LP signal is a single HiGHS vertex per syndrome; different optima of the same relaxation may disagree.
+- The fractional-LP signal is a characterization of the optimal face via HiGHS; different solver paths may still disagree at the tolerance level.
 - Degenerate-ambiguity labels depend on the logical basis that qudec.logicals returns.

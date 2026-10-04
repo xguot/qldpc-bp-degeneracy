@@ -3,7 +3,12 @@
 import unittest
 
 from failuremodes.report import make_claim
-from failuremodes.study import StudyConfig, run_code, study_codes
+from failuremodes.study import (
+    StudyConfig,
+    code_registry,
+    run_code,
+    study_codes,
+)
 
 
 class TestStudySmoke(unittest.TestCase):
@@ -44,6 +49,44 @@ class TestStudySmoke(unittest.TestCase):
         self.assertGreater(hgp22["classification_bp_osd"]["n_avoid"], 0)
         self.assertGreater(hgp22["classification_bp"]["n_avoid"], 0)
         self.assertEqual(hgp22["lp"]["n_fractional"], 2)
+
+
+    def test_sampled_smoke_with_oracle(self):
+        cfg = StudyConfig(p=0.05, codes=("hgp22",), shots=500, seed=7,
+                          lp=True, lp_max_syndromes=64)
+        builder, d = code_registry()["hgp22"]
+        h_x, h_z = builder()
+        res = run_code("hgp22", h_x, h_z, cfg, d_analytic=d)
+        meta = res["meta"]
+        self.assertTrue(meta["sampled"])
+        self.assertEqual(meta["n_invalid_osd"], 0)
+        self.assertEqual(meta["oracle_timeouts"], 0)
+        c = res["classification_bp_osd"]
+        self.assertGreater(c["n_avoid"], 0)
+        self.assertEqual(c["n_ambiguous"], c["n_avoid"])
+        self.assertEqual(res["lp"]["label"], "avoidable")
+
+    def test_sampled_smoke_no_oracle(self):
+        cfg = StudyConfig(p=0.05, codes=("hgp22",), shots=200, seed=3,
+                          oracle="none", lp=True, lp_max_syndromes=8)
+        builder, d = code_registry()["hgp22"]
+        h_x, h_z = builder()
+        res = run_code("hgp22", h_x, h_z, cfg, d_analytic=d)
+        c = res["classification_bp_osd"]
+        self.assertIsNone(c["n_avoid"])
+        self.assertGreaterEqual(c["n_stopping"], 0)
+        self.assertEqual(res["lp"]["label"], "failure")
+
+    def test_sampled_smoke_bb72(self):
+        cfg = StudyConfig(p=0.05, codes=("bb72",), shots=100, seed=11,
+                          oracle="none", lp=True, lp_max_syndromes=5)
+        builder, d = code_registry()["bb72"]
+        h_x, h_z = builder()
+        res = run_code("bb72", h_x, h_z, cfg, d_analytic=d)
+        self.assertEqual(res["meta"]["n"], 72)
+        self.assertEqual(res["meta"]["k"], 12)
+        self.assertEqual(res["meta"]["n_invalid_osd"], 0)
+        self.assertEqual(res["lp"]["n_solved"], 5)
 
 
 class TestClaim(unittest.TestCase):
