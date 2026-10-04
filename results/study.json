@@ -1,0 +1,795 @@
+{
+  "config": {
+    "p": 0.1,
+    "p_values": [
+      0.05,
+      0.1
+    ],
+    "osd_order": 1,
+    "bp_max_iter": 30,
+    "lp": true,
+    "lp_max_syndromes": 4096,
+    "seed": 0
+  },
+  "codes": {
+    "steane": {
+      "meta": {
+        "name": "steane",
+        "n": 7,
+        "m_x": 3,
+        "m_z": 3,
+        "k": 1,
+        "d": 3,
+        "n_patterns": 128,
+        "n_unique_syndromes": 8,
+        "n_degenerate_syndromes": 0,
+        "n_ambiguous_syndromes": 0,
+        "max_minimal_multiplicity": 1,
+        "n_invalid_bp": 0,
+        "n_invalid_osd": 0,
+        "n_minimal_gt1_instances": 0
+      },
+      "per_weight": [
+        {
+          "w": 0,
+          "n_patterns": 1,
+          "fail_bp": 0,
+          "avoid_bp": 0,
+          "fail_osd": 0,
+          "avoid_osd": 0
+        },
+        {
+          "w": 1,
+          "n_patterns": 7,
+          "fail_bp": 0,
+          "avoid_bp": 0,
+          "fail_osd": 0,
+          "avoid_osd": 0
+        },
+        {
+          "w": 2,
+          "n_patterns": 21,
+          "fail_bp": 21,
+          "avoid_bp": 0,
+          "fail_osd": 21,
+          "avoid_osd": 0
+        },
+        {
+          "w": 3,
+          "n_patterns": 35,
+          "fail_bp": 7,
+          "avoid_bp": 0,
+          "fail_osd": 7,
+          "avoid_osd": 0
+        },
+        {
+          "w": 4,
+          "n_patterns": 35,
+          "fail_bp": 28,
+          "avoid_bp": 0,
+          "fail_osd": 28,
+          "avoid_osd": 0
+        },
+        {
+          "w": 5,
+          "n_patterns": 21,
+          "fail_bp": 0,
+          "avoid_bp": 0,
+          "fail_osd": 0,
+          "avoid_osd": 0
+        },
+        {
+          "w": 6,
+          "n_patterns": 7,
+          "fail_bp": 7,
+          "avoid_bp": 0,
+          "fail_osd": 7,
+          "avoid_osd": 0
+        },
+        {
+          "w": 7,
+          "n_patterns": 1,
+          "fail_bp": 1,
+          "avoid_bp": 0,
+          "fail_osd": 1,
+          "avoid_osd": 0
+        }
+      ],
+      "weighted": [
+        {
+          "p": 0.05,
+          "fail_bp": 0.04148633749999999,
+          "avoid_bp": 0.0,
+          "fail_osd": 0.04148633749999999,
+          "avoid_osd": 0.0,
+          "avoid_osd_ambiguous": 0.0,
+          "avoid_osd_stopping": 0.0
+        },
+        {
+          "p": 0.1,
+          "fail_bp": 0.13064320000000004,
+          "avoid_bp": 0.0,
+          "fail_osd": 0.13064320000000004,
+          "avoid_osd": 0.0,
+          "avoid_osd_ambiguous": 0.0,
+          "avoid_osd_stopping": 0.0
+        }
+      ],
+      "classification_bp_osd": {
+        "n_avoid": 0,
+        "n_ambiguous": 0,
+        "n_stopping": 0,
+        "n_both": 0,
+        "n_neither": 0
+      },
+      "classification_bp": {
+        "n_avoid": 0,
+        "n_non_convergence": 0,
+        "n_wrong_convergence": 0,
+        "wrong_convergence_ambiguous": 0,
+        "wrong_convergence_stopping": 0
+      },
+      "lp": {
+        "n_syndromes": 8,
+        "n_solved": 8,
+        "n_solver_failures": 0,
+        "n_fractional": 3,
+        "n_fractional_vertex": 3,
+        "uniform": {
+          "precision": 0.0,
+          "recall": null,
+          "n_pred": 48,
+          "n_label": 0,
+          "n_both": 0,
+          "w_pred": 48.0,
+          "w_label": 0.0,
+          "w_both": 0.0
+        },
+        "p_weighted": {
+          "precision": 0.0,
+          "recall": null,
+          "n_pred": 48,
+          "n_label": 0,
+          "n_both": 0,
+          "w_pred": 0.22140000000000004,
+          "w_label": 0.0,
+          "w_both": 0.0
+        },
+        "n_frac_ambiguous_syn": 0,
+        "n_frac_unambiguous_syn": 3
+      }
+    },
+    "rep5": {
+      "meta": {
+        "name": "rep5",
+        "n": 5,
+        "m_x": 0,
+        "m_z": 4,
+        "k": 1,
+        "d": 5,
+        "n_patterns": 32,
+        "n_unique_syndromes": 16,
+        "n_degenerate_syndromes": 0,
+        "n_ambiguous_syndromes": 0,
+        "max_minimal_multiplicity": 1,
+        "n_invalid_bp": 0,
+        "n_invalid_osd": 0,
+        "n_minimal_gt1_instances": 0
+      },
+      "per_weight": [
+        {
+          "w": 0,
+          "n_patterns": 1,
+          "fail_bp": 0,
+          "avoid_bp": 0,
+          "fail_osd": 0,
+          "avoid_osd": 0
+        },
+        {
+          "w": 1,
+          "n_patterns": 5,
+          "fail_bp": 0,
+          "avoid_bp": 0,
+          "fail_osd": 0,
+          "avoid_osd": 0
+        },
+        {
+          "w": 2,
+          "n_patterns": 10,
+          "fail_bp": 0,
+          "avoid_bp": 0,
+          "fail_osd": 0,
+          "avoid_osd": 0
+        },
+        {
+          "w": 3,
+          "n_patterns": 10,
+          "fail_bp": 10,
+          "avoid_bp": 0,
+          "fail_osd": 10,
+          "avoid_osd": 0
+        },
+        {
+          "w": 4,
+          "n_patterns": 5,
+          "fail_bp": 5,
+          "avoid_bp": 0,
+          "fail_osd": 5,
+          "avoid_osd": 0
+        },
+        {
+          "w": 5,
+          "n_patterns": 1,
+          "fail_bp": 1,
+          "avoid_bp": 0,
+          "fail_osd": 1,
+          "avoid_osd": 0
+        }
+      ],
+      "weighted": [
+        {
+          "p": 0.05,
+          "fail_bp": 0.0011581250000000003,
+          "avoid_bp": 0.0,
+          "fail_osd": 0.0011581250000000003,
+          "avoid_osd": 0.0,
+          "avoid_osd_ambiguous": 0.0,
+          "avoid_osd_stopping": 0.0
+        },
+        {
+          "p": 0.1,
+          "fail_bp": 0.008560000000000003,
+          "avoid_bp": 0.0,
+          "fail_osd": 0.008560000000000003,
+          "avoid_osd": 0.0,
+          "avoid_osd_ambiguous": 0.0,
+          "avoid_osd_stopping": 0.0
+        }
+      ],
+      "classification_bp_osd": {
+        "n_avoid": 0,
+        "n_ambiguous": 0,
+        "n_stopping": 0,
+        "n_both": 0,
+        "n_neither": 0
+      },
+      "classification_bp": {
+        "n_avoid": 0,
+        "n_non_convergence": 0,
+        "n_wrong_convergence": 0,
+        "wrong_convergence_ambiguous": 0,
+        "wrong_convergence_stopping": 0
+      },
+      "lp": {
+        "n_syndromes": 16,
+        "n_solved": 16,
+        "n_solver_failures": 0,
+        "n_fractional": 0,
+        "n_fractional_vertex": 0,
+        "uniform": {
+          "precision": null,
+          "recall": null,
+          "n_pred": 0,
+          "n_label": 0,
+          "n_both": 0,
+          "w_pred": 0.0,
+          "w_label": 0.0,
+          "w_both": 0.0
+        },
+        "p_weighted": {
+          "precision": null,
+          "recall": null,
+          "n_pred": 0,
+          "n_label": 0,
+          "n_both": 0,
+          "w_pred": 0.0,
+          "w_label": 0.0,
+          "w_both": 0.0
+        },
+        "n_frac_ambiguous_syn": 0,
+        "n_frac_unambiguous_syn": 0
+      }
+    },
+    "hgp22": {
+      "meta": {
+        "name": "hgp22",
+        "n": 5,
+        "m_x": 2,
+        "m_z": 2,
+        "k": 1,
+        "d": 2,
+        "n_patterns": 32,
+        "n_unique_syndromes": 4,
+        "n_degenerate_syndromes": 2,
+        "n_ambiguous_syndromes": 2,
+        "max_minimal_multiplicity": 2,
+        "n_invalid_bp": 16,
+        "n_invalid_osd": 0,
+        "n_minimal_gt1_instances": 16
+      },
+      "per_weight": [
+        {
+          "w": 0,
+          "n_patterns": 1,
+          "fail_bp": 0,
+          "avoid_bp": 0,
+          "fail_osd": 0,
+          "avoid_osd": 0
+        },
+        {
+          "w": 1,
+          "n_patterns": 5,
+          "fail_bp": 2,
+          "avoid_bp": 2,
+          "fail_osd": 2,
+          "avoid_osd": 2
+        },
+        {
+          "w": 2,
+          "n_patterns": 10,
+          "fail_bp": 6,
+          "avoid_bp": 2,
+          "fail_osd": 6,
+          "avoid_osd": 2
+        },
+        {
+          "w": 3,
+          "n_patterns": 10,
+          "fail_bp": 6,
+          "avoid_bp": 2,
+          "fail_osd": 6,
+          "avoid_osd": 2
+        },
+        {
+          "w": 4,
+          "n_patterns": 5,
+          "fail_bp": 2,
+          "avoid_bp": 2,
+          "fail_osd": 2,
+          "avoid_osd": 2
+        },
+        {
+          "w": 5,
+          "n_patterns": 1,
+          "fail_bp": 0,
+          "avoid_bp": 0,
+          "fail_osd": 0,
+          "avoid_osd": 0
+        }
+      ],
+      "weighted": [
+        {
+          "p": 0.05,
+          "fail_bp": 0.095,
+          "avoid_bp": 0.085975,
+          "fail_osd": 0.095,
+          "avoid_osd": 0.085975,
+          "avoid_osd_ambiguous": 0.085975,
+          "avoid_osd_stopping": 1.1875000000000002e-05
+        },
+        {
+          "p": 0.1,
+          "fail_bp": 0.18000000000000005,
+          "avoid_bp": 0.1476,
+          "fail_osd": 0.18000000000000005,
+          "avoid_osd": 0.1476,
+          "avoid_osd_ambiguous": 0.1476,
+          "avoid_osd_stopping": 0.00018000000000000004
+        }
+      ],
+      "classification_bp_osd": {
+        "n_avoid": 8,
+        "n_ambiguous": 8,
+        "n_stopping": 2,
+        "n_both": 2,
+        "n_neither": 0
+      },
+      "classification_bp": {
+        "n_avoid": 8,
+        "n_non_convergence": 8,
+        "n_wrong_convergence": 0,
+        "wrong_convergence_ambiguous": 0,
+        "wrong_convergence_stopping": 0
+      },
+      "lp": {
+        "n_syndromes": 4,
+        "n_solved": 4,
+        "n_solver_failures": 0,
+        "n_fractional": 2,
+        "n_fractional_vertex": 0,
+        "uniform": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "n_pred": 16,
+          "n_label": 8,
+          "n_both": 8,
+          "w_pred": 16.0,
+          "w_label": 8.0,
+          "w_both": 8.0
+        },
+        "p_weighted": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "n_pred": 16,
+          "n_label": 8,
+          "n_both": 8,
+          "w_pred": 0.2952,
+          "w_label": 0.1476,
+          "w_both": 0.1476
+        },
+        "n_frac_ambiguous_syn": 2,
+        "n_frac_unambiguous_syn": 0
+      }
+    },
+    "hgp32": {
+      "meta": {
+        "name": "hgp32",
+        "n": 8,
+        "m_x": 4,
+        "m_z": 3,
+        "k": 1,
+        "d": 2,
+        "n_patterns": 256,
+        "n_unique_syndromes": 8,
+        "n_degenerate_syndromes": 5,
+        "n_ambiguous_syndromes": 5,
+        "max_minimal_multiplicity": 5,
+        "n_invalid_bp": 160,
+        "n_invalid_osd": 0,
+        "n_minimal_gt1_instances": 160
+      },
+      "per_weight": [
+        {
+          "w": 0,
+          "n_patterns": 1,
+          "fail_bp": 0,
+          "avoid_bp": 0,
+          "fail_osd": 0,
+          "avoid_osd": 0
+        },
+        {
+          "w": 1,
+          "n_patterns": 8,
+          "fail_bp": 3,
+          "avoid_bp": 3,
+          "fail_osd": 3,
+          "avoid_osd": 3
+        },
+        {
+          "w": 2,
+          "n_patterns": 28,
+          "fail_bp": 15,
+          "avoid_bp": 8,
+          "fail_osd": 15,
+          "avoid_osd": 8
+        },
+        {
+          "w": 3,
+          "n_patterns": 56,
+          "fail_bp": 31,
+          "avoid_bp": 17,
+          "fail_osd": 31,
+          "avoid_osd": 17
+        },
+        {
+          "w": 4,
+          "n_patterns": 70,
+          "fail_bp": 35,
+          "avoid_bp": 25,
+          "fail_osd": 35,
+          "avoid_osd": 25
+        },
+        {
+          "w": 5,
+          "n_patterns": 56,
+          "fail_bp": 25,
+          "avoid_bp": 17,
+          "fail_osd": 25,
+          "avoid_osd": 17
+        },
+        {
+          "w": 6,
+          "n_patterns": 28,
+          "fail_bp": 13,
+          "avoid_bp": 6,
+          "fail_osd": 13,
+          "avoid_osd": 6
+        },
+        {
+          "w": 7,
+          "n_patterns": 8,
+          "fail_bp": 5,
+          "avoid_bp": 3,
+          "fail_osd": 5,
+          "avoid_osd": 3
+        },
+        {
+          "w": 8,
+          "n_patterns": 1,
+          "fail_bp": 1,
+          "avoid_bp": 1,
+          "fail_osd": 1,
+          "avoid_osd": 1
+        }
+      ],
+      "weighted": [
+        {
+          "p": 0.05,
+          "fail_bp": 0.13549999999999998,
+          "avoid_bp": 0.12122862499999998,
+          "fail_osd": 0.13549999999999998,
+          "avoid_osd": 0.12122862499999998,
+          "avoid_osd_ambiguous": 0.12122862499999998,
+          "avoid_osd_stopping": 2.2028906249999997e-05
+        },
+        {
+          "p": 0.1,
+          "fail_bp": 0.24400000000000005,
+          "avoid_bp": 0.19781200000000004,
+          "fail_osd": 0.24400000000000005,
+          "avoid_osd": 0.19781200000000007,
+          "avoid_osd_ambiguous": 0.19781200000000007,
+          "avoid_osd_stopping": 0.0003097000000000001
+        }
+      ],
+      "classification_bp_osd": {
+        "n_avoid": 80,
+        "n_ambiguous": 80,
+        "n_stopping": 18,
+        "n_both": 18,
+        "n_neither": 0
+      },
+      "classification_bp": {
+        "n_avoid": 80,
+        "n_non_convergence": 80,
+        "n_wrong_convergence": 0,
+        "wrong_convergence_ambiguous": 0,
+        "wrong_convergence_stopping": 0
+      },
+      "lp": {
+        "n_syndromes": 8,
+        "n_solved": 8,
+        "n_solver_failures": 0,
+        "n_fractional": 5,
+        "n_fractional_vertex": 0,
+        "uniform": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "n_pred": 160,
+          "n_label": 80,
+          "n_both": 80,
+          "w_pred": 160.0,
+          "w_label": 80.0,
+          "w_both": 80.0
+        },
+        "p_weighted": {
+          "precision": 0.4936118818996666,
+          "recall": 1.0,
+          "n_pred": 160,
+          "n_label": 80,
+          "n_both": 80,
+          "w_pred": 0.400744,
+          "w_label": 0.197812,
+          "w_both": 0.197812
+        },
+        "n_frac_ambiguous_syn": 5,
+        "n_frac_unambiguous_syn": 0
+      }
+    },
+    "hgp33": {
+      "meta": {
+        "name": "hgp33",
+        "n": 13,
+        "m_x": 6,
+        "m_z": 6,
+        "k": 1,
+        "d": 3,
+        "n_patterns": 8192,
+        "n_unique_syndromes": 64,
+        "n_degenerate_syndromes": 33,
+        "n_ambiguous_syndromes": 26,
+        "max_minimal_multiplicity": 6,
+        "n_invalid_bp": 2944,
+        "n_invalid_osd": 0,
+        "n_minimal_gt1_instances": 4224
+      },
+      "per_weight": [
+        {
+          "w": 0,
+          "n_patterns": 1,
+          "fail_bp": 0,
+          "avoid_bp": 0,
+          "fail_osd": 0,
+          "avoid_osd": 0
+        },
+        {
+          "w": 1,
+          "n_patterns": 13,
+          "fail_bp": 0,
+          "avoid_bp": 0,
+          "fail_osd": 0,
+          "avoid_osd": 0
+        },
+        {
+          "w": 2,
+          "n_patterns": 78,
+          "fail_bp": 27,
+          "avoid_bp": 18,
+          "fail_osd": 25,
+          "avoid_osd": 16
+        },
+        {
+          "w": 3,
+          "n_patterns": 286,
+          "fail_bp": 158,
+          "avoid_bp": 67,
+          "fail_osd": 159,
+          "avoid_osd": 66
+        },
+        {
+          "w": 4,
+          "n_patterns": 715,
+          "fail_bp": 374,
+          "avoid_bp": 149,
+          "fail_osd": 383,
+          "avoid_osd": 152
+        },
+        {
+          "w": 5,
+          "n_patterns": 1287,
+          "fail_bp": 645,
+          "avoid_bp": 258,
+          "fail_osd": 645,
+          "avoid_osd": 244
+        },
+        {
+          "w": 6,
+          "n_patterns": 1716,
+          "fail_bp": 870,
+          "avoid_bp": 370,
+          "fail_osd": 858,
+          "avoid_osd": 344
+        },
+        {
+          "w": 7,
+          "n_patterns": 1716,
+          "fail_bp": 844,
+          "avoid_bp": 380,
+          "fail_osd": 838,
+          "avoid_osd": 368
+        },
+        {
+          "w": 8,
+          "n_patterns": 1287,
+          "fail_bp": 620,
+          "avoid_bp": 256,
+          "fail_osd": 622,
+          "avoid_osd": 248
+        },
+        {
+          "w": 9,
+          "n_patterns": 715,
+          "fail_bp": 354,
+          "avoid_bp": 142,
+          "fail_osd": 362,
+          "avoid_osd": 140
+        },
+        {
+          "w": 10,
+          "n_patterns": 286,
+          "fail_bp": 151,
+          "avoid_bp": 68,
+          "fail_osd": 157,
+          "avoid_osd": 72
+        },
+        {
+          "w": 11,
+          "n_patterns": 78,
+          "fail_bp": 46,
+          "avoid_bp": 17,
+          "fail_osd": 43,
+          "avoid_osd": 14
+        },
+        {
+          "w": 12,
+          "n_patterns": 13,
+          "fail_bp": 6,
+          "avoid_bp": 3,
+          "fail_osd": 3,
+          "avoid_osd": 0
+        },
+        {
+          "w": 13,
+          "n_patterns": 1,
+          "fail_bp": 1,
+          "avoid_bp": 0,
+          "fail_osd": 1,
+          "avoid_osd": 0
+        }
+      ],
+      "weighted": [
+        {
+          "p": 0.05,
+          "fail_bp": 0.051835986494374986,
+          "avoid_bp": 0.031255097516015615,
+          "fail_osd": 0.04910214536937499,
+          "avoid_osd": 0.028344878813593738,
+          "avoid_osd_ambiguous": 0.028344878813593738,
+          "avoid_osd_stopping": 2.838106909179688e-09
+        },
+        {
+          "p": 0.1,
+          "fail_bp": 0.15755097088000006,
+          "avoid_bp": 0.08692930800000004,
+          "fail_osd": 0.15196607488000008,
+          "avoid_osd": 0.08034725664000003,
+          "avoid_osd_ambiguous": 0.08034725664000003,
+          "avoid_osd_stopping": 3.322458000000002e-07
+        }
+      ],
+      "classification_bp_osd": {
+        "n_avoid": 1664,
+        "n_ambiguous": 1664,
+        "n_stopping": 106,
+        "n_both": 106,
+        "n_neither": 0
+      },
+      "classification_bp": {
+        "n_avoid": 1728,
+        "n_non_convergence": 1216,
+        "n_wrong_convergence": 512,
+        "wrong_convergence_ambiguous": 512,
+        "wrong_convergence_stopping": 40
+      },
+      "lp": {
+        "n_syndromes": 64,
+        "n_solved": 64,
+        "n_solver_failures": 0,
+        "n_fractional": 33,
+        "n_fractional_vertex": 7,
+        "uniform": {
+          "precision": 0.3939393939393939,
+          "recall": 1.0,
+          "n_pred": 4224,
+          "n_label": 1664,
+          "n_both": 1664,
+          "w_pred": 4224.0,
+          "w_label": 1664.0,
+          "w_both": 1664.0
+        },
+        "p_weighted": {
+          "precision": 0.40348327864414085,
+          "recall": 1.0,
+          "n_pred": 4224,
+          "n_label": 1664,
+          "n_both": 1664,
+          "w_pred": 0.1991340432000001,
+          "w_label": 0.08034725664000003,
+          "w_both": 0.08034725664000003
+        },
+        "n_frac_ambiguous_syn": 26,
+        "n_frac_unambiguous_syn": 7
+      }
+    }
+  },
+  "families": {
+    "degenerate": [
+      "hgp22",
+      "hgp32",
+      "hgp33"
+    ],
+    "controls": [
+      "steane",
+      "rep5"
+    ]
+  },
+  "claim": {
+    "sentence": "Across the three degenerate hypergraph-product codes ([[5,1,2]], [[8,1,2]], [[13,1,3]]) at code capacity with p = 0.1, 100.0% of avoidable BP+OSD failures are degenerate ambiguities, and a fractional LP optimum flags an avoidable BP+OSD failure with 47.6% precision (100.0% recall); the non-degenerate [[7,1,3]] Steane code has no avoidable BP+OSD failures at this p.",
+    "ambiguous_share_avoidable_bposd": 1.0,
+    "lp_precision": 0.47566718888317827,
+    "lp_recall": 1.0,
+    "steane_ambiguous_share": null,
+    "codes": "[[5,1,2]], [[8,1,2]], [[13,1,3]]",
+    "p": 0.1
+  }
+}

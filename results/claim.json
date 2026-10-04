@@ -1,0 +1,9 @@
+{
+  "sentence": "Across the three degenerate hypergraph-product codes ([[5,1,2]], [[8,1,2]], [[13,1,3]]) at code capacity with p = 0.1, 100.0% of avoidable BP+OSD failures are degenerate ambiguities, and a fractional LP optimum flags an avoidable BP+OSD failure with 47.6% precision (100.0% recall); the non-degenerate [[7,1,3]] Steane code has no avoidable BP+OSD failures at this p.",
+  "ambiguous_share_avoidable_bposd": 1.0,
+  "lp_precision": 0.47566718888317827,
+  "lp_recall": 1.0,
+  "steane_ambiguous_share": null,
+  "codes": "[[5,1,2]], [[8,1,2]], [[13,1,3]]",
+  "p": 0.1
+}
