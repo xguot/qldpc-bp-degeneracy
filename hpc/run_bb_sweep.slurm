@@ -2,13 +2,12 @@
 # Sampled failure-mode characterization on the bivariate bicycle codes
 # without the MLD oracle: BP vs BP+OSD failure rates, convergence
 # split, stopping-set counts, and the LP optimal-face calibration on
-# sampled syndromes. Array 0-7: two codes (bb72, bb144) times four
-# channel rates. Fixed seeds keep every run reproducible.
-#
-# The study is CPU-bound (torch CPU plus HiGHS LP); the GPU allocation
-# follows the lensless-recon job template and stays unused. bb144 gets
-# a smaller LP cap because the face characterization costs 2n+1 LP
-# solves per syndrome.
+# sampled syndromes. The BP pass and the batched OSD run on CUDA
+# (auto-detected), so the decoder stage takes 10^5 shots per task; the
+# HiGHS LP face calibration stays on the CPU. Array 0-7: two codes
+# (bb72, bb144) times four channel rates. Fixed seeds keep every run
+# reproducible. bb144 gets a smaller LP cap because the face
+# characterization costs 2n+1 LP solves per syndrome.
 #
 # Usage:
 #   sbatch hpc/run_bb_sweep.slurm
@@ -58,7 +57,7 @@ echo "=== ${CODE} p=${P} seed=${SEED} lp-cap=${CAP} python=${PY} ==="
 "${PY}" -u scripts/run_study.py \
     --codes "${CODE}" \
     --p "${P}" \
-    --shots 10000 \
+    --shots 100000 \
     --no-oracle \
     --lp-max-syndromes "${CAP}" \
     --seed "${SEED}" \

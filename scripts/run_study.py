@@ -30,6 +30,11 @@ def main(argv=None):
     parser.add_argument("--no-lp", action="store_true")
     parser.add_argument("--lp-max-syndromes", type=int, default=4096)
     parser.add_argument("--ilp-time-limit", type=float, default=60.0)
+    parser.add_argument("--device", default="auto",
+                        choices=["auto", "cpu", "cuda"],
+                        help="decoder device for the sampled path")
+    parser.add_argument("--gpu-chunk", type=int, default=10000,
+                        help="batch chunk size for the GPU decoders")
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--out", default="results")
     args = parser.parse_args(argv)
@@ -49,6 +54,8 @@ def main(argv=None):
         lp=not args.no_lp,
         lp_max_syndromes=args.lp_max_syndromes,
         ilp_time_limit=args.ilp_time_limit,
+        device=args.device,
+        gpu_chunk=args.gpu_chunk,
         seed=args.seed,
     )
     if names is not None:

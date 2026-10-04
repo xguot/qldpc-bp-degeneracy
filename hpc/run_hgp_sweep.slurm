@@ -2,10 +2,10 @@
 # Sampled failure-mode sweep on the larger hypergraph-product surface
 # patches with the exact ILP MLD oracle. Array 0-11: three codes
 # (hgp44, hgp55, hgp66) times four channel rates. Fixed seeds keep
-# every run reproducible.
-#
-# The study is CPU-bound (torch CPU plus HiGHS LP/MILP); the GPU
-# allocation follows the lensless-recon job template and stays unused.
+# every run reproducible. The BP pass and the batched OSD run on CUDA
+# (auto-detected); the HiGHS MILP oracle and LP calibration stay on the
+# CPU, and the MILP oracle is the runtime wall, which is why the HGP
+# sweep keeps 10^4 shots while the BB sweep takes 10^5.
 #
 # Usage:
 #   sbatch hpc/run_hgp_sweep.slurm

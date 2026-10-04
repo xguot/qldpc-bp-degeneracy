@@ -63,7 +63,6 @@ if [ "$DIRECTION" = "push" ]; then
   echo "  Requires the qudec repo at ~/scratch/qudec (run its own"
   echo "  hpc/sync.sh push first), then on the login node:"
   echo "    ssh ${REMOTE_HOST} && cd ${REMOTE_PATH} && bash hpc/setup.sh"
-  echo "  Sanity job:  sbatch hpc/run_test.slurm"
   echo "  HGP sweep:   sbatch hpc/run_hgp_sweep.slurm"
   echo "  BB sweep:    sbatch hpc/run_bb_sweep.slurm"
 fi

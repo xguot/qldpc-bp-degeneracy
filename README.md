@@ -38,6 +38,13 @@ Two scales:
 - `src/failuremodes/bp_only.py` — `BpOnlyDecoder`, qudec min-sum BP
   with hard decisions and no OSD stage, so non-convergence stays
   observable.
+- `src/failuremodes/gpu_osd.py` — batched, bit-packed GF(2) OSD
+  elimination in torch: swap-free elimination with the same pivot
+  choices as qudec's CPU `_osd`, vectorized across shots, runs on CUDA.
+- `src/failuremodes/gpu_decoders.py` — `GpuBpOsdDecoder` and
+  `GpuBpOnlyDecoder`: qudec's BP pass fed CUDA tensors plus the batched
+  GPU OSD, chunked to bound VRAM. Output equals the CPU decoder exactly
+  (unit-tested shot for shot).
 - `src/failuremodes/study.py` — the experiment harness (experiments
   1-3 of the plan): exhaustive and sampled paths over a code registry.
 - `src/failuremodes/report.py` — claim generation and markdown report
@@ -69,6 +76,9 @@ Two scales:
   syndrome with two minimal errors always yields a fractional point
   (their midpoint), so ambiguous syndromes are always detected; the
   single HiGHS vertex would miss most of them.
+- The GPU decoders reproduce the CPU decoder output exactly: the
+  batched OSD uses the same pivot choices and combination sweep as
+  qudec's `_osd`, and the equality is unit-tested on random inputs.
 - Degenerate-ambiguity labels depend on the logical basis returned by
   `qudec.logicals`.
 
@@ -87,18 +97,19 @@ Two scales:
 
 ## HPC (Rivanna)
 
-The study is CPU-bound (torch on CPU, HiGHS LP/MILP), but the job
-templates follow the `lensless-recon` allocation config
-(`nssac_students`, `bii-gpu`). Push the code, set up the environment
-once, and submit the sweeps:
+The decoder stage (batched BP + OSD) runs on CUDA with the job
+configs from the `lensless-recon` allocation (`nssac_students`,
+`bii-gpu`, one GPU, 8 CPUs, 64 GB); the HiGHS LP/MILP stages stay on
+the CPU. The environment installs a CUDA-capable torch. Push the code,
+set up the environment once (installs only, nothing runs on the login
+node), and submit the sweeps:
 
     bash hpc/sync.sh push
     ssh rivanna
     cd ~/scratch/qldpc-bp-degeneracy
     bash hpc/setup.sh                          # conda env failuremodes + qudec
-    sbatch hpc/run_test.slurm                  # unit suite + exhaustive smoke
-    sbatch hpc/run_hgp_sweep.slurm             # [[25,1,4]] [[41,1,5]] [[61,1,6]] x 4 p, ILP oracle
-    sbatch hpc/run_bb_sweep.slurm              # [[72,12,6]] [[144,12,12]] x 4 p, no oracle
+    sbatch hpc/run_hgp_sweep.slurm             # [[25,1,4]] [[41,1,5]] [[61,1,6]] x 4 p, 10^4 shots, ILP oracle
+    sbatch hpc/run_bb_sweep.slurm              # [[72,12,6]] [[144,12,12]] x 4 p, 10^5 shots, GPU decoders
 
 Pull results back and aggregate:
 

@@ -10,6 +10,7 @@ BP and BP+OSD results are reported separately throughout.
 from dataclasses import asdict, dataclass
 
 import numpy as np
+import torch
 
 from qudec.bposd import BpOsdDecoder
 from qudec.codes import (
@@ -59,6 +60,8 @@ class StudyConfig:
     bp_max_iter: int = 30
     lp: bool = True
     seed: int = 0
+    device: str = "auto"
+    gpu_chunk: int = 10000
 
 
 def code_registry():
@@ -150,6 +153,30 @@ def _lp_calibration(h, syndromes, labels, weights, cfg):
         "p_weighted": _precision_recall(frac_inst[known], labels[known],
                                         weights[known]),
     }, frac_by_key
+
+
+def _sampled_decoders(h_x, h_z, l_x, l_z, cfg):
+    """Return (bp_decoder, osd_decoder, device) for the sampled path."""
+    use_gpu = cfg.device == "cuda" or (
+        cfg.device == "auto" and torch.cuda.is_available())
+    if use_gpu:
+        from failuremodes.gpu_decoders import (
+            GpuBpOnlyDecoder,
+            GpuBpOsdDecoder,
+        )
+        bp = GpuBpOnlyDecoder(h_x, h_z, l_x, l_z, cfg.p, cfg.p,
+                              max_iter=cfg.bp_max_iter, device="cuda",
+                              gpu_chunk=cfg.gpu_chunk)
+        osd = GpuBpOsdDecoder(h_x, h_z, l_x, l_z, cfg.p, cfg.p,
+                              max_iter=cfg.bp_max_iter,
+                              osd_order=cfg.osd_order, device="cuda",
+                              gpu_chunk=cfg.gpu_chunk)
+        return bp, osd, "cuda"
+    bp = BpOnlyDecoder(h_x, h_z, l_x, l_z, cfg.p, cfg.p,
+                       max_iter=cfg.bp_max_iter)
+    osd = BpOsdDecoder(h_x, h_z, l_x, l_z, cfg.p, cfg.p,
+                       max_iter=cfg.bp_max_iter, osd_order=cfg.osd_order)
+    return bp, osd, "cpu"
 
 
 def run_code(name, h_x, h_z, cfg, d_analytic=None):
@@ -310,10 +337,7 @@ def run_code_sampled(name, h_x, h_z, cfg, d_analytic=None):
     use_oracle = cfg.oracle != "none"
     oracle = (MldIlpOracle(h, l, time_limit=cfg.ilp_time_limit)
               if use_oracle else None)
-    dec_bp = BpOnlyDecoder(h_x, h_z, l_x, l_z, cfg.p, cfg.p,
-                           max_iter=cfg.bp_max_iter)
-    dec_osd = BpOsdDecoder(h_x, h_z, l_x, l_z, cfg.p, cfg.p,
-                           max_iter=cfg.bp_max_iter, osd_order=cfg.osd_order)
+    dec_bp, dec_osd, device = _sampled_decoders(h_x, h_z, l_x, l_z, cfg)
     patterns, _ = sample_iid_errors(n, cfg.p, cfg.shots, "x", seed=cfg.seed)
     syndromes = (h @ patterns.T) % 2
     empty_z = np.zeros((cfg.shots, h_x.shape[0]), dtype=np.int8)
@@ -442,6 +466,7 @@ def run_code_sampled(name, h_x, h_z, cfg, d_analytic=None):
         "p": cfg.p,
         "seed": cfg.seed,
         "oracle": use_oracle,
+        "device": device,
         "oracle_solves": None if oracle is None else oracle.n_solves,
         "oracle_timeouts": None if oracle is None else oracle.n_timeouts,
     }

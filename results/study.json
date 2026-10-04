@@ -19,7 +19,9 @@
     "osd_order": 1,
     "bp_max_iter": 30,
     "lp": true,
-    "seed": 0
+    "seed": 0,
+    "device": "auto",
+    "gpu_chunk": 10000
   },
   "codes": {
     "steane": {
