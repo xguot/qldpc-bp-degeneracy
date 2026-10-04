@@ -78,8 +78,10 @@ def render(rows):
         cells = []
         for key, _ in HEADERS:
             if key in ("code", "p", "shots", "non_conv", "wrong_conv",
-                       "frac_face", "frac_vertex", "timeouts"):
+                       "frac_face", "frac_vertex"):
                 cells.append(str(r[key]))
+            elif key == "timeouts":
+                cells.append("n/a" if r[key] is None else str(r[key]))
             else:
                 cells.append(fmt(r[key]))
         lines.append("| " + " | ".join(cells) + " |")
