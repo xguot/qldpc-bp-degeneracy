@@ -58,6 +58,7 @@ echo "=== ${CODE} p=${P} seed=${SEED} lp-cap=${CAP} python=${PY} ==="
     --codes "${CODE}" \
     --p "${P}" \
     --shots 100000 \
+    --device cuda \
     --no-oracle \
     --lp-max-syndromes "${CAP}" \
     --seed "${SEED}" \

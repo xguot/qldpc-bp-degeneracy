@@ -157,6 +157,8 @@ def _lp_calibration(h, syndromes, labels, weights, cfg):
 
 def _sampled_decoders(h_x, h_z, l_x, l_z, cfg):
     """Return (bp_decoder, osd_decoder, device) for the sampled path."""
+    if cfg.device == "cuda" and not torch.cuda.is_available():
+        raise RuntimeError("device=cuda requested but torch reports no CUDA")
     use_gpu = cfg.device == "cuda" or (
         cfg.device == "auto" and torch.cuda.is_available())
     if use_gpu:

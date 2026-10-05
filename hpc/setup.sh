@@ -30,12 +30,16 @@ QUDEC_PATH="${QUDEC_PATH:-${HOME}/scratch/qudec}"
 echo "=== Installing Python dependencies ==="
 conda run -n "${ENV_NAME}" pip install --upgrade pip
 conda run -n "${ENV_NAME}" pip install numpy scipy
+# Force the CUDA build: pip skips same-version wheel swaps, which is
+# how a CPU-only torch survives an upgrade.
+conda run -n "${ENV_NAME}" pip uninstall -y torch
 conda run -n "${ENV_NAME}" pip install torch
 conda run -n "${ENV_NAME}" pip install -e "${QUDEC_PATH}"
 conda run -n "${ENV_NAME}" pip install -e .
 
 echo ""
 echo "=== Setup complete ==="
+echo "Verify CUDA:    conda run -n ${ENV_NAME} python -c 'import torch; print(torch.__version__, torch.cuda.is_available())'"
 echo "HGP sweep:       sbatch hpc/run_hgp_sweep.slurm"
 echo "BB sweep:        sbatch hpc/run_bb_sweep.slurm"
 echo "Monitor:         squeue -u \$USER"
