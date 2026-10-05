@@ -31,9 +31,11 @@ echo "=== Installing Python dependencies ==="
 conda run -n "${ENV_NAME}" pip install --upgrade pip
 conda run -n "${ENV_NAME}" pip install numpy scipy
 # Force the CUDA build: pip skips same-version wheel swaps, which is
-# how a CPU-only torch survives an upgrade.
+# how a CPU-only torch survives an upgrade. Pin cu121 because the
+# cluster has V100 nodes (compute capability 7.0) and newer wheels
+# dropped sm_70 kernels.
 conda run -n "${ENV_NAME}" pip uninstall -y torch
-conda run -n "${ENV_NAME}" pip install torch
+conda run -n "${ENV_NAME}" pip install torch==2.4.1 --index-url https://download.pytorch.org/whl/cu121
 conda run -n "${ENV_NAME}" pip install -e "${QUDEC_PATH}"
 conda run -n "${ENV_NAME}" pip install -e .
 

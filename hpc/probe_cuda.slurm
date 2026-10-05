@@ -40,8 +40,9 @@ done
 "${PY}" -c "
 import sys, torch
 print('torch', torch.__version__, 'cuda_available', torch.cuda.is_available())
-if torch.cuda.is_available():
-    print('device', torch.cuda.get_device_name(0))
-else:
+if not torch.cuda.is_available():
     sys.exit(1)
+print('device', torch.cuda.get_device_name(0))
+x = torch.randn(2048, 2048, device='cuda')
+print('matmul check', float((x @ x).sum()))
 "
