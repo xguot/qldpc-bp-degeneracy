@@ -50,7 +50,10 @@ Two scales:
 - `src/failuremodes/report.py` — claim generation and markdown report
   rendering.
 - `scripts/run_study.py` — CLI for one run; `scripts/aggregate_hpc.py`
-  merges per-run results into one summary table.
+  merges per-run results into one summary table;
+  `scripts/make_figures.py` renders the note figures.
+- `docs/` — the LaTeX research note (`note.pdf`) with the claim, the
+  lemma, the tables, and the limitations.
 - `hpc/` — Rivanna sync, one-time setup, and the SLURM sweeps.
 - `tests/` — unit tests, including hand-constructed cases with known
   labels for every classifier and exact ILP-vs-brute-force agreement.
@@ -141,6 +144,15 @@ at 10^5 shots without it:
 - On the bicycle codes the LP detector's precision rises with p
   ([[72,12,6]]: 41% at p = 0.02 to 86% at p = 0.1) with recall
   90-100%.
+
+## The note
+
+`docs/note.pdf` is a six-page research note: claim, setup, the lemma
+(ambiguous syndrome implies fractional LP optimal face), the measured
+tables, and honest limitations. Regenerate with
+
+    .venv/bin/python scripts/make_figures.py
+    make -C docs
 
 ## Claim
 
