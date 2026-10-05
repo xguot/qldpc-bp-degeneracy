@@ -24,7 +24,7 @@
 
 | code | p | P(fail BP) | P(avoid BP) | P(fail BP+OSD) | P(avoid BP+OSD) | avoid share BP | avoid share BP+OSD |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| bb72 | 0.1 | 0.6993 | n/a | 0.6628 | n/a | n/a | n/a |
+| bb72 | 0.1 | 0.6992 | n/a | 0.6633 | n/a | n/a | n/a |
 
 ## Experiment 2: classification of avoidable failures
 
@@ -38,7 +38,7 @@
 
 | code | avoidable | non-convergence | wrong convergence |
 | --- | --- | --- | --- |
-| bb72 | n/a | 43996 | 25937 |
+| bb72 | n/a | 43955 | 25962 |
 
 ## Experiment 3: LP calibration as degeneracy detector
 

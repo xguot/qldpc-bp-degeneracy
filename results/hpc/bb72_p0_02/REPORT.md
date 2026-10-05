@@ -2,7 +2,7 @@
 
 ## The claim
 
-> Across the tested bivariate bicycle codes ([[72,12,6]]) at code capacity with p = 0.02, a fractional LP optimum flags a BP+OSD failure with 40.7% precision (100.0% recall); BP-only failures split into 52.8% non-convergence and 47.2% wrong convergence.
+> Across the tested bivariate bicycle codes ([[72,12,6]]) at code capacity with p = 0.02, a fractional LP optimum flags a BP+OSD failure with 51.9% precision (100.0% recall); BP-only failures split into 52.3% non-convergence and 47.7% wrong convergence.
 
 ## Method
 
@@ -24,7 +24,7 @@
 
 | code | p | P(fail BP) | P(avoid BP) | P(fail BP+OSD) | P(avoid BP+OSD) | avoid share BP | avoid share BP+OSD |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| bb72 | 0.02 | 0.0135 | n/a | 0.0106 | n/a | n/a | n/a |
+| bb72 | 0.02 | 0.0135 | n/a | 0.0110 | n/a | n/a | n/a |
 
 ## Experiment 2: classification of avoidable failures
 
@@ -38,17 +38,17 @@
 
 | code | avoidable | non-convergence | wrong convergence |
 | --- | --- | --- | --- |
-| bb72 | n/a | 712 | 636 |
+| bb72 | n/a | 706 | 643 |
 
 ## Experiment 3: LP calibration as degeneracy detector
 
 | code | solved | frac face | frac vertex | frac ambig | frac unambig | precision | recall | precision (u) | recall (u) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| bb72 | 300 | 26 | 2 | n/a | n/a | 0.407 | 1.000 | 0.407 | 1.000 |
+| bb72 | 300 | 26 | 2 | n/a | n/a | 0.519 | 1.000 | 0.519 | 1.000 |
 
 ## Findings
 
-- On [[72,12,6]] the LP optimal face is fractional for 26/300 sampled syndromes (2 by the vertex signal) and flags BP+OSD failures with 0.407 precision at 1.000 recall (p = 0.02).
+- On [[72,12,6]] the LP optimal face is fractional for 26/300 sampled syndromes (2 by the vertex signal) and flags BP+OSD failures with 0.519 precision at 1.000 recall (p = 0.02).
 
 ## Limitations
 

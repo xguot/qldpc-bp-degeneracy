@@ -16,7 +16,7 @@
     "bp_max_iter": 30,
     "lp": true,
     "seed": 2004,
-    "device": "auto",
+    "device": "cuda",
     "gpu_chunk": 10000
   },
   "codes": {
@@ -35,13 +35,13 @@
         "n_degenerate_syndromes": null,
         "n_ambiguous_syndromes": null,
         "max_minimal_multiplicity": null,
-        "n_invalid_bp": 412,
+        "n_invalid_bp": 399,
         "n_invalid_osd": 0,
         "n_minimal_gt1_instances": null,
         "p": 0.02,
         "seed": 2004,
         "oracle": false,
-        "device": "cpu",
+        "device": "cuda",
         "oracle_solves": null,
         "oracle_timeouts": null
       },
@@ -49,9 +49,9 @@
       "weighted": [
         {
           "p": 0.02,
-          "fail_bp": 0.00336,
+          "fail_bp": 0.00322,
           "avoid_bp": null,
-          "fail_osd": 0.00111,
+          "fail_osd": 0.0012,
           "avoid_osd": null,
           "avoid_osd_ambiguous": null,
           "avoid_osd_stopping": null,
@@ -67,8 +67,8 @@
       },
       "classification_bp": {
         "n_avoid": null,
-        "n_non_convergence": 335,
-        "n_wrong_convergence": 1,
+        "n_non_convergence": 322,
+        "n_wrong_convergence": 0,
         "wrong_convergence_ambiguous": null,
         "wrong_convergence_stopping": 0
       },
@@ -79,24 +79,24 @@
         "n_fractional": 74,
         "n_fractional_vertex": 74,
         "uniform": {
-          "precision": 0.01282051282051282,
-          "recall": 1.0,
+          "precision": 0.0,
+          "recall": null,
           "n_pred": 78,
-          "n_label": 1,
-          "n_both": 1,
+          "n_label": 0,
+          "n_both": 0,
           "w_pred": 78.0,
-          "w_label": 1.0,
-          "w_both": 1.0
+          "w_label": 0.0,
+          "w_both": 0.0
         },
         "p_weighted": {
-          "precision": 0.01282051282051282,
-          "recall": 1.0,
+          "precision": 0.0,
+          "recall": null,
           "n_pred": 78,
-          "n_label": 1,
-          "n_both": 1,
+          "n_label": 0,
+          "n_both": 0,
           "w_pred": 78.0,
-          "w_label": 1.0,
-          "w_both": 1.0
+          "w_label": 0.0,
+          "w_both": 0.0
         },
         "label": "failure",
         "n_ambiguous_syn": null,
@@ -115,10 +115,10 @@
   },
   "claim": {
     "p": 0.02,
-    "lp_precision": 0.01282051282051282,
-    "lp_recall": 1.0,
-    "non_convergence_share_bp": 0.9970238095238095,
+    "lp_precision": 0.0,
+    "lp_recall": null,
+    "non_convergence_share_bp": 1.0,
     "codes": "[[144,12,12]]",
-    "sentence": "Across the tested bivariate bicycle codes ([[144,12,12]]) at code capacity with p = 0.02, a fractional LP optimum flags a BP+OSD failure with 1.3% precision (100.0% recall); BP-only failures split into 99.7% non-convergence and 0.3% wrong convergence."
+    "sentence": "Across the tested bivariate bicycle codes ([[144,12,12]]) at code capacity with p = 0.02, a fractional LP optimum flags a BP+OSD failure with 0.0% precision (n/a recall); BP-only failures split into 100.0% non-convergence and 0.0% wrong convergence."
   }
 }

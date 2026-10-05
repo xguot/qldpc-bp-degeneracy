@@ -16,7 +16,7 @@
     "bp_max_iter": 30,
     "lp": true,
     "seed": 2003,
-    "device": "auto",
+    "device": "cuda",
     "gpu_chunk": 10000
   },
   "codes": {
@@ -35,13 +35,13 @@
         "n_degenerate_syndromes": null,
         "n_ambiguous_syndromes": null,
         "max_minimal_multiplicity": null,
-        "n_invalid_bp": 44367,
+        "n_invalid_bp": 44357,
         "n_invalid_osd": 0,
         "n_minimal_gt1_instances": null,
         "p": 0.1,
         "seed": 2003,
         "oracle": false,
-        "device": "cpu",
+        "device": "cuda",
         "oracle_solves": null,
         "oracle_timeouts": null
       },
@@ -49,9 +49,9 @@
       "weighted": [
         {
           "p": 0.1,
-          "fail_bp": 0.69933,
+          "fail_bp": 0.69917,
           "avoid_bp": null,
-          "fail_osd": 0.66283,
+          "fail_osd": 0.66329,
           "avoid_osd": null,
           "avoid_osd_ambiguous": null,
           "avoid_osd_stopping": null,
@@ -67,8 +67,8 @@
       },
       "classification_bp": {
         "n_avoid": null,
-        "n_non_convergence": 43996,
-        "n_wrong_convergence": 25937,
+        "n_non_convergence": 43955,
+        "n_wrong_convergence": 25962,
         "wrong_convergence_ambiguous": null,
         "wrong_convergence_stopping": 0
       },
@@ -117,7 +117,7 @@
     "p": 0.1,
     "lp_precision": 0.8584905660377359,
     "lp_recall": 0.896551724137931,
-    "non_convergence_share_bp": 0.6291164400211631,
+    "non_convergence_share_bp": 0.628673999170445,
     "codes": "[[72,12,6]]",
     "sentence": "Across the tested bivariate bicycle codes ([[72,12,6]]) at code capacity with p = 0.1, a fractional LP optimum flags a BP+OSD failure with 85.8% precision (89.7% recall); BP-only failures split into 62.9% non-convergence and 37.1% wrong convergence."
   }

@@ -16,7 +16,7 @@
     "bp_max_iter": 30,
     "lp": true,
     "seed": 1001,
-    "device": "auto",
+    "device": "cuda",
     "gpu_chunk": 10000
   },
   "codes": {
@@ -41,7 +41,7 @@
         "p": 0.05,
         "seed": 1001,
         "oracle": true,
-        "device": "cpu",
+        "device": "cuda",
         "oracle_solves": 1382,
         "oracle_timeouts": 0
       },
