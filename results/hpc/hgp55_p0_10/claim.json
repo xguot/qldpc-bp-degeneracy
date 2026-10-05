@@ -1,0 +1,8 @@
+{
+  "p": 0.1,
+  "ambiguous_share_avoidable_bposd": 0.9956647398843932,
+  "lp_precision": 0.09134615384615384,
+  "lp_recall": 1.0,
+  "codes": "[[41,1,5]]",
+  "sentence": "Across the tested degenerate hypergraph-product codes ([[41,1,5]]) at code capacity with p = 0.1, 99.6% of avoidable BP+OSD failures are degenerate ambiguities, and a fractional LP optimum flags an avoidable BP+OSD failure with 9.1% precision (100.0% recall)."
+}

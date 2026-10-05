@@ -114,10 +114,33 @@ node), and submit the sweeps:
 Pull results back and aggregate:
 
     bash hpc/sync.sh pull
-    .venv/bin/python scripts/aggregate_hpc.py  # results/hpc_summary.md
+    .venv/bin/python scripts/aggregate_hpc.py  # results/hpc/hpc_summary.md
 
 `hpc/setup.sh` expects the qudec repo at `~/scratch/qudec` (override
 with `QUDEC_PATH`).
+
+## Scaled findings (Rivanna, 20 runs, committed in results/hpc)
+
+HGP surface patches [[25,1,4]], [[41,1,5]], [[61,1,6]] at
+p = 0.02-0.10 with the exact ILP oracle, and [[72,12,6]], [[144,12,12]]
+at 10^5 shots without it:
+
+- 98-100% of avoidable BP+OSD failures on the surface patches are
+  degenerate ambiguities at every p; stopping sets contribute zero
+  avoidable failures anywhere.
+- The LP optimal-face detector keeps 100% recall on the patches while
+  its precision falls with distance: 47.6% at d <= 3 (exhaustive),
+  21% at d = 4, 9% at d = 5-6. The signal tracks degeneracy, not
+  failure: large codes accumulate harmless degenerate syndromes.
+- About half of BP+OSD failures on the patches are avoidable
+  (MLD-recoverable) at p = 0.1; the rest are true MLD limits.
+- BP-only failures are dominated by non-convergence, and its share
+  grows with distance (78% at d = 4 to 96% at d = 6 at p = 0.1); on
+  [[72,12,6]] roughly 40% of BP failures are wrong convergences, while
+  [[144,12,12]] almost never wrong-converges (3%).
+- On the bicycle codes the LP detector's precision rises with p
+  ([[72,12,6]]: 41% at p = 0.02 to 86% at p = 0.1) with recall
+  90-100%.
 
 ## Claim
 

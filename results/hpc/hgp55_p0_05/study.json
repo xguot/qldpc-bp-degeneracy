@@ -1,0 +1,124 @@
+{
+  "config": {
+    "p": 0.05,
+    "p_values": [
+      0.05,
+      0.1
+    ],
+    "codes": [
+      "hgp55"
+    ],
+    "shots": 10000,
+    "oracle": "ilp",
+    "ilp_time_limit": 120.0,
+    "lp_max_syndromes": 300,
+    "osd_order": 1,
+    "bp_max_iter": 30,
+    "lp": true,
+    "seed": 1005,
+    "device": "auto",
+    "gpu_chunk": 10000
+  },
+  "codes": {
+    "hgp55": {
+      "meta": {
+        "name": "hgp55",
+        "sampled": true,
+        "n": 41,
+        "m_x": 20,
+        "m_z": 20,
+        "k": 1,
+        "d": 5,
+        "n_patterns": null,
+        "shots": 10000,
+        "n_unique_syndromes": 3696,
+        "n_degenerate_syndromes": null,
+        "n_ambiguous_syndromes": null,
+        "max_minimal_multiplicity": null,
+        "n_invalid_bp": 2340,
+        "n_invalid_osd": 0,
+        "n_minimal_gt1_instances": null,
+        "p": 0.05,
+        "seed": 1005,
+        "oracle": true,
+        "device": "cpu",
+        "oracle_solves": 2131,
+        "oracle_timeouts": 0
+      },
+      "per_weight": null,
+      "weighted": [
+        {
+          "p": 0.05,
+          "fail_bp": 0.0657,
+          "avoid_bp": 0.0559,
+          "fail_osd": 0.0275,
+          "avoid_osd": 0.016,
+          "avoid_osd_ambiguous": 0.0157,
+          "avoid_osd_stopping": 0.0,
+          "shots": 10000
+        }
+      ],
+      "classification_bp_osd": {
+        "n_avoid": 160,
+        "n_ambiguous": 157,
+        "n_stopping": 0,
+        "n_both": 0,
+        "n_neither": 3
+      },
+      "classification_bp": {
+        "n_avoid": 559,
+        "n_non_convergence": 604,
+        "n_wrong_convergence": 53,
+        "wrong_convergence_ambiguous": 0,
+        "wrong_convergence_stopping": 0
+      },
+      "lp": {
+        "n_syndromes": 300,
+        "n_solved": 300,
+        "n_solver_failures": 0,
+        "n_fractional": 141,
+        "n_fractional_vertex": 31,
+        "uniform": {
+          "precision": 0.07537688442211055,
+          "recall": 1.0,
+          "n_pred": 199,
+          "n_label": 15,
+          "n_both": 15,
+          "w_pred": 199.0,
+          "w_label": 15.0,
+          "w_both": 15.0
+        },
+        "p_weighted": {
+          "precision": 0.07537688442211055,
+          "recall": 1.0,
+          "n_pred": 199,
+          "n_label": 15,
+          "n_both": 15,
+          "w_pred": 199.0,
+          "w_label": 15.0,
+          "w_both": 15.0
+        },
+        "label": "avoidable",
+        "n_ambiguous_syn": null,
+        "n_unambiguous_syn": null,
+        "n_frac_ambiguous_syn": 28,
+        "n_frac_unambiguous_syn": 113
+      }
+    }
+  },
+  "families": {
+    "degenerate": [
+      "hgp55"
+    ],
+    "bicycle": [],
+    "controls": []
+  },
+  "claim": {
+    "p": 0.05,
+    "ambiguous_share_avoidable_bposd": 0.9812499999999998,
+    "lp_precision": 0.07537688442211055,
+    "lp_recall": 1.0,
+    "codes": "[[41,1,5]]",
+    "sentence": "Across the tested degenerate hypergraph-product codes ([[41,1,5]]) at code capacity with p = 0.05, 98.1% of avoidable BP+OSD failures are degenerate ambiguities, and a fractional LP optimum flags an avoidable BP+OSD failure with 7.5% precision (100.0% recall)."
+  }
+}
