@@ -27,11 +27,6 @@ fi
 
 QUDEC_PATH="${QUDEC_PATH:-${HOME}/scratch/qudec}"
 
-if [[ -d "${QUDEC_PATH}/.git" ]]; then
-    echo "=== Updating qudec (admm.py and phenom.py live there) ==="
-    git -C "${QUDEC_PATH}" pull --ff-only || echo "qudec pull failed; continuing with the current checkout"
-fi
-
 echo "=== Installing Python dependencies ==="
 conda run -n "${ENV_NAME}" pip install --upgrade pip
 conda run -n "${ENV_NAME}" pip install numpy scipy

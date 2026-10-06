@@ -82,8 +82,3 @@ Pull results back and aggregate:
 
     bash hpc/sync.sh pull
     .venv/bin/python scripts/aggregate_hpc.py
-
-An ADMM parity-polytope study on [[144,12,12]] under phenomenological
-noise (measurement errors) lives alongside: see
-docs/admm_limits_plan.md, and submit hpc/run_admm_confirm.slurm and
-hpc/run_admm_ablate.slurm after setup.
