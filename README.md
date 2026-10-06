@@ -30,7 +30,7 @@ research note is `docs/note.pdf`.
 - The LP optimal-face detector keeps 100% recall; precision decays
   with distance (48% at d <= 3, 21% at d = 4, 9% at d = 5-6) but
   rises with p on the bicycle codes (bb72: 52% -> 86%, bb144: 0% ->
-  64%).
+  78%).
 - About half of BP+OSD failures on the larger patches are avoidable
   at p = 0.1; the rest are true MLD limits.
 - [[144,12,12]] almost never wrong-converges (3% of BP failures);

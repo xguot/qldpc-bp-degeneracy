@@ -14,8 +14,8 @@
     "wrong_conv": 0,
     "lp_prec": 0.0,
     "lp_rec": null,
-    "frac_face": 74,
-    "frac_vertex": 74
+    "frac_face": 2,
+    "frac_vertex": 0
   },
   {
     "code": "bb144",
@@ -30,10 +30,10 @@
     "stop_share": null,
     "non_conv": 9959,
     "wrong_conv": 381,
-    "lp_prec": 0.06521739130434782,
+    "lp_prec": 0.1875,
     "lp_rec": 1.0,
-    "frac_face": 92,
-    "frac_vertex": 92
+    "frac_face": 16,
+    "frac_vertex": 4
   },
   {
     "code": "bb144",
@@ -48,10 +48,10 @@
     "stop_share": null,
     "non_conv": 47445,
     "wrong_conv": 1748,
-    "lp_prec": 0.3333333333333333,
-    "lp_rec": 1.0,
-    "frac_face": 96,
-    "frac_vertex": 96
+    "lp_prec": 0.5849056603773585,
+    "lp_rec": 0.96875,
+    "frac_face": 53,
+    "frac_vertex": 40
   },
   {
     "code": "bb144",
@@ -66,10 +66,10 @@
     "stop_share": null,
     "non_conv": 73357,
     "wrong_conv": 2482,
-    "lp_prec": 0.64,
+    "lp_prec": 0.7763157894736842,
     "lp_rec": 1.0,
-    "frac_face": 100,
-    "frac_vertex": 100
+    "frac_face": 76,
+    "frac_vertex": 70
   },
   {
     "code": "bb72",

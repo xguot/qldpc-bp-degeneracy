@@ -44,11 +44,11 @@
 
 | code | solved | frac face | frac vertex | frac ambig | frac unambig | precision | recall | precision (u) | recall (u) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| bb144 | 100 | 74 | 74 | n/a | n/a | 0.000 | n/a | 0.000 | n/a |
+| bb144 | 100 | 2 | 0 | n/a | n/a | 0.000 | n/a | 0.000 | n/a |
 
 ## Findings
 
-- On [[144,12,12]] the LP optimal face is fractional for 74/100 sampled syndromes (74 by the vertex signal) and flags BP+OSD failures with 0.000 precision at n/a recall (p = 0.02).
+- On [[144,12,12]] the LP optimal face is fractional for 2/100 sampled syndromes (0 by the vertex signal) and flags BP+OSD failures with 0.000 precision at n/a recall (p = 0.02).
 
 ## Limitations
 

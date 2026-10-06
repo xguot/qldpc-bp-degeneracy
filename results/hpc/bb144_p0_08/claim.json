@@ -1,8 +1,8 @@
 {
   "p": 0.08,
-  "lp_precision": 0.3333333333333333,
-  "lp_recall": 1.0,
+  "lp_precision": 0.5849056603773585,
+  "lp_recall": 0.96875,
   "non_convergence_share_bp": 0.964466489134633,
   "codes": "[[144,12,12]]",
-  "sentence": "Across the tested bivariate bicycle codes ([[144,12,12]]) at code capacity with p = 0.08, a fractional LP optimum flags a BP+OSD failure with 33.3% precision (100.0% recall); BP-only failures split into 96.4% non-convergence and 3.6% wrong convergence."
+  "sentence": "Across the tested bivariate bicycle codes ([[144,12,12]]) at code capacity with p = 0.08, a fractional LP optimum flags a BP+OSD failure with 58.5% precision (96.9% recall); BP-only failures split into 96.4% non-convergence and 3.6% wrong convergence."
 }

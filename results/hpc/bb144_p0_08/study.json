@@ -76,27 +76,27 @@
         "n_syndromes": 100,
         "n_solved": 100,
         "n_solver_failures": 0,
-        "n_fractional": 96,
-        "n_fractional_vertex": 96,
+        "n_fractional": 53,
+        "n_fractional_vertex": 40,
         "uniform": {
-          "precision": 0.3333333333333333,
-          "recall": 1.0,
-          "n_pred": 96,
+          "precision": 0.5849056603773585,
+          "recall": 0.96875,
+          "n_pred": 53,
           "n_label": 32,
-          "n_both": 32,
-          "w_pred": 96.0,
+          "n_both": 31,
+          "w_pred": 53.0,
           "w_label": 32.0,
-          "w_both": 32.0
+          "w_both": 31.0
         },
         "p_weighted": {
-          "precision": 0.3333333333333333,
-          "recall": 1.0,
-          "n_pred": 96,
+          "precision": 0.5849056603773585,
+          "recall": 0.96875,
+          "n_pred": 53,
           "n_label": 32,
-          "n_both": 32,
-          "w_pred": 96.0,
+          "n_both": 31,
+          "w_pred": 53.0,
           "w_label": 32.0,
-          "w_both": 32.0
+          "w_both": 31.0
         },
         "label": "failure",
         "n_ambiguous_syn": null,
@@ -115,10 +115,10 @@
   },
   "claim": {
     "p": 0.08,
-    "lp_precision": 0.3333333333333333,
-    "lp_recall": 1.0,
+    "lp_precision": 0.5849056603773585,
+    "lp_recall": 0.96875,
     "non_convergence_share_bp": 0.964466489134633,
     "codes": "[[144,12,12]]",
-    "sentence": "Across the tested bivariate bicycle codes ([[144,12,12]]) at code capacity with p = 0.08, a fractional LP optimum flags a BP+OSD failure with 33.3% precision (100.0% recall); BP-only failures split into 96.4% non-convergence and 3.6% wrong convergence."
+    "sentence": "Across the tested bivariate bicycle codes ([[144,12,12]]) at code capacity with p = 0.08, a fractional LP optimum flags a BP+OSD failure with 58.5% precision (96.9% recall); BP-only failures split into 96.4% non-convergence and 3.6% wrong convergence."
   }
 }
