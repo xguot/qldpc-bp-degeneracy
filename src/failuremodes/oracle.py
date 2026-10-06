@@ -13,7 +13,8 @@ def enumerate_patterns(n):
 def pack_bits(v):
     """Pack a binary vector to an int with bit i at position i."""
     v = np.asarray(v, dtype=np.int8).reshape(-1)
-    powers = 1 << np.arange(len(v), dtype=np.int64)
+    # object dtype: m > 63 overflows int64 shifts
+    powers = 1 << np.arange(len(v), dtype=object)
     return int((v * powers).sum())
 
 
@@ -51,7 +52,7 @@ class MldOracle:
         patterns = enumerate_patterns(n)
         syndromes = (h @ patterns.T) % 2
         weights = patterns.sum(axis=1)
-        powers = 1 << np.arange(m, dtype=np.int64)
+        powers = 1 << np.arange(m, dtype=object)
         keys = (syndromes.T * powers).sum(axis=1)
         order = np.lexsort((weights, keys))
         keys_sorted = keys[order]
@@ -60,7 +61,7 @@ class MldOracle:
         starts = np.concatenate(([True], keys_sorted[1:] != keys_sorted[:-1]))
         group_start = np.nonzero(starts)[0]
         group_end = np.concatenate((group_start[1:], [len(order)]))
-        class_powers = 1 << np.arange(l.shape[0], dtype=np.int64)
+        class_powers = 1 << np.arange(l.shape[0], dtype=object)
         self._min_weight = {}
         self._min_errors = {}
         self._classes = {}

@@ -165,7 +165,7 @@ class MldIlpOracle:
         key = pack_bits(s)
         if key not in self._cache_amb:
             w = self.min_weight(s)
-            if w == "timeout":
+            if w == "timeout" or w is None:
                 self._cache_amb[key] = "timeout"
             else:
                 t = (self.l @ w[1]) % 2

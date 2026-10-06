@@ -94,7 +94,8 @@ def _logical_ok(l, patterns, corrections):
 
 
 def _syndrome_keys(syndromes):
-    powers = 1 << np.arange(syndromes.shape[0], dtype=np.int64)
+    # object dtype: m > 63 overflows int64 shifts
+    powers = 1 << np.arange(syndromes.shape[0], dtype=object)
     return (syndromes.T * powers).sum(axis=1)
 
 
